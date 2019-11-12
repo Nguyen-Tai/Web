@@ -1,0 +1,79 @@
+﻿@model Shop2.Models.TaiKhoan
+@{
+    ViewData["Title"] = "Delete";
+}
+<br />
+<br />
+<br />
+
+<h2 class="text-info">Delete User</h2>
+<br />
+<form method="post" asp-action="Delete">
+    <div class="p-4 border rounded">
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TenTaiKhoan">Tên đăng nhập</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="TenTaiKhoan" disabled class="form-control"  />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="MatKhau">Mật khẩu</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="MatKhau" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="QuyenTaiKhoan">Quyền tài khoản</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="QuyenTaiKhoan" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CauHoiBaoMat">Câu hỏi bảo mật</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="CauHoiBaoMat" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CauTraLoi"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="CauTraLoi" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Email" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="NgayTao"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="NgayTao"  disabled class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" asp-route-id="@Model.TaiKhoanId" value="Delete" />
+            <a asp-action="Index" class="btn btn-success">Back To List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

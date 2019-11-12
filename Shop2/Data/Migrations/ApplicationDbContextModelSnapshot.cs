@@ -224,14 +224,15 @@ namespace Shop2.Data.Migrations
                     b.Property<int>("SanPhamId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("DonDatHangId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DonDatHangId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("DonGia")
                         .HasColumnType("money");
 
                     b.Property<int>("SoLuong")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasMaxLength(1000);
 
                     b.Property<string>("TenSanPham")
                         .HasColumnType("nvarchar(max)");
@@ -248,9 +249,10 @@ namespace Shop2.Data.Migrations
 
             modelBuilder.Entity("Shop2.Models.DonDatHang", b =>
                 {
-                    b.Property<Guid>("DonDatHangId")
+                    b.Property<int>("DonDatHangId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChiNH")
                         .HasColumnType("nvarchar(max)");
@@ -313,7 +315,8 @@ namespace Shop2.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MoTaGH")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("TenGianHang")
                         .HasColumnType("nvarchar(max)");
@@ -325,9 +328,8 @@ namespace Shop2.Data.Migrations
 
             modelBuilder.Entity("Shop2.Models.HoSoTaiKhoan", b =>
                 {
-                    b.Property<Guid>("TaiKhoanId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("TaiKhoanId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CreditCard")
                         .HasColumnType("ntext");
@@ -372,8 +374,8 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MoTaMatHang")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("TenMatHang")
                         .HasColumnType("nvarchar(max)");
@@ -394,6 +396,9 @@ namespace Shop2.Data.Migrations
 
                     b.Property<int>("Gia")
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MotaSP")
                         .HasColumnType("nvarchar(1000)")
@@ -444,9 +449,10 @@ namespace Shop2.Data.Migrations
 
             modelBuilder.Entity("Shop2.Models.TaiKhoan", b =>
                 {
-                    b.Property<Guid>("TaiKhoanId")
+                    b.Property<int>("TaiKhoanId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CauHoiBaoMat")
                         .HasColumnType("nvarchar(max)");

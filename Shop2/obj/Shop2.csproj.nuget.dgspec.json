@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TNT\\Desktop\\Shop2\\Shop2\\Shop2.csproj": {}
+    "C:\\Users\\TNT\\Desktop\\Web\\Shop2\\Shop2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TNT\\Desktop\\Shop2\\Shop2\\Shop2.csproj": {
+    "C:\\Users\\TNT\\Desktop\\Web\\Shop2\\Shop2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TNT\\Desktop\\Shop2\\Shop2\\Shop2.csproj",
+        "projectUniqueName": "C:\\Users\\TNT\\Desktop\\Web\\Shop2\\Shop2.csproj",
         "projectName": "Shop2",
-        "projectPath": "C:\\Users\\TNT\\Desktop\\Shop2\\Shop2\\Shop2.csproj",
+        "projectPath": "C:\\Users\\TNT\\Desktop\\Web\\Shop2\\Shop2.csproj",
         "packagesPath": "C:\\Users\\TNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TNT\\Desktop\\Shop2\\Shop2\\obj\\",
+        "outputPath": "C:\\Users\\TNT\\Desktop\\Web\\Shop2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -58,6 +58,14 @@
               "version": "[3.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
             }

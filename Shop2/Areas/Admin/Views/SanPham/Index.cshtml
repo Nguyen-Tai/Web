@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<SanPham>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">List sản phẩm</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New San Pham</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenSanPham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.MotaSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Gia)
+            <th>
+                @Html.DisplayNameFor(m => m.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.TacGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.NXB)
+            <th>
+                @Html.DisplayNameFor(m => m.NgonNgu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.NgayThem)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.TenSanPham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.MotaSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Gia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.TacGia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.NXB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.NgonNgu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.NgayThem)
+                    </td>
+                    <td>
+                        <partial name="_TableButtonPartial" model="item.SanPhamId" />
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+
+

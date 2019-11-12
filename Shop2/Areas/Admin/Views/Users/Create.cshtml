@@ -1,0 +1,90 @@
+﻿@model Shop2.Models.TaiKhoan
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<br />
+<br />
+
+<h2 class="text-info">Create User</h2>
+<br />
+<form method="post" asp-action="Create">
+    <div class="p-4 border rounded">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TenTaiKhoan">Tên đăng nhập</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="TenTaiKhoan" class="form-control" placeholder="User" />
+            </div>
+            <span asp-validation-for="TenTaiKhoan" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="MatKhau">Mật khẩu</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="MatKhau" class="form-control" type="password" placeholder="Password" />
+            </div>
+            <span asp-validation-for="MatKhau" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="QuyenTaiKhoan">Quyền tài khoản</label>
+            </div>
+            <div class="col-5">
+                <select class="form-control" asp-for="QuyenTaiKhoan">
+                    <option>user</option>
+                    <option>admin</option>
+                </select>
+            </div>           
+            <span asp-validation-for="QuyenTaiKhoan" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CauHoiBaoMat">Câu hỏi bảo mật</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="CauHoiBaoMat" class="form-control" />
+            </div>
+            <span asp-validation-for="CauHoiBaoMat" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CauTraLoi"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="CauTraLoi" class="form-control" />
+            </div>
+            <span asp-validation-for="CauTraLoi" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="NgayTao"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="NgayTao" class="form-control" />
+            </div>
+            <span asp-validation-for="NgayTao" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <a asp-action="Index" class="btn btn-success">Back To List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

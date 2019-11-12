@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TaiKhoan>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">User List</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New User</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenTaiKhoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.MatKhau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.QuyenTaiKhoan)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+         {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.TenTaiKhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.MatKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.QuyenTaiKhoan)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.TaiKhoanId" />
+                </td>
+            </tr>
+         }
+    </table>
+</div>
+

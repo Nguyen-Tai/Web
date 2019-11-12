@@ -1,0 +1,72 @@
+﻿@model Shop2.Models.TaiKhoan
+@{
+    ViewData["Title"] = "Details";
+}
+<br />
+<br />
+<br />
+<h2 class="text-info">User Details</h2>
+<div class="p-4 border rounded">
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="TenTaiKhoan">Tên đăng nhập</label>
+        </div>
+        <div class="col-5">
+            <input asp-for="TenTaiKhoan" class="form-control"  disabled/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="MatKhau">Mật khẩu</label>
+        </div>
+        <div class="col-5">
+            <input asp-for="MatKhau" class="form-control" disabled  />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="QuyenTaiKhoan">Quyền tài khoản</label>
+        </div>
+        <div class="col-5">
+            <input asp-for="QuyenTaiKhoan" class="form-control"  disabled />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="CauHoiBaoMat">Câu hỏi bảo mật</label>
+        </div>
+        <div class="col-5">
+            <input asp-for="CauHoiBaoMat" class="form-control" disabled />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="CauTraLoi"></label>
+        </div>
+        <div class="col-5">
+            <input asp-for="CauTraLoi" class="form-control" disabled/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Email"></label>
+        </div>
+        <div class="col-5">
+            <input asp-for="Email" class="form-control" disabled/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="NgayTao"></label>
+        </div>
+        <div class="col-5">
+            <input asp-for="NgayTao" class="form-control" disabled/>
+        </div>
+    </div>
+
+    <br />
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model.TaiKhoanId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back List</a>
+    </div>
+</div>

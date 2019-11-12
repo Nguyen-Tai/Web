@@ -8,6 +8,14 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20191108082304_DB.cs" />
     <Compile Remove="Data\Migrations\20191108082304_DB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191108084849_DB.cs" />
+    <Compile Remove="Data\Migrations\20191108084849_DB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191111141421_DB.cs" />
+    <Compile Remove="Data\Migrations\20191111141421_DB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191111142108_DB.cs" />
+    <Compile Remove="Data\Migrations\20191111142108_DB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191111143706_DB.cs" />
+    <Compile Remove="Data\Migrations\20191111143706_DB.Designer.cs" />
   </ItemGroup>
 
 
@@ -17,6 +25,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
