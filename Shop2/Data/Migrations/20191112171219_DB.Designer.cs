@@ -10,7 +10,7 @@ using Shop2.Data;
 namespace Shop2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191112083947_DB")]
+    [Migration("20191112171219_DB")]
     partial class DB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -233,13 +233,15 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("money");
 
                     b.Property<int>("SoLuong")
-                        .HasColumnType("int")
-                        .HasMaxLength(1000);
+                        .HasColumnType("int");
 
                     b.Property<string>("TenSanPham")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
 
                     b.Property<decimal?>("TongCong")
+                        .IsRequired()
                         .HasColumnType("money");
 
                     b.HasKey("SanPhamId", "DonDatHangId");
@@ -257,6 +259,7 @@ namespace Shop2.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChiNH")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DiaChiNH1")
@@ -269,12 +272,16 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DienThoaiNH")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("DienThoaiTT")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("EmailKhachHang")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("GhiChu")
@@ -293,9 +300,12 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TenKhachHang")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("TenNguoiNH")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenNguoiTT")
@@ -317,11 +327,13 @@ namespace Shop2.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MoTaGH")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<string>("TenGianHang")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("GianHangId");
 
@@ -337,6 +349,7 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("ntext");
 
                     b.Property<string>("DiaChiNH1")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DiaChiNH2")
@@ -349,10 +362,13 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DienThoaiNH")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("DienThoaiTT")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("TenNguoiNH")
                         .HasColumnType("nvarchar(max)");
@@ -376,11 +392,13 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MoTaMatHang")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<string>("TenMatHang")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("MatHangId");
 
@@ -396,8 +414,8 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Gia")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Gia")
+                        .HasColumnType("money");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -411,18 +429,20 @@ namespace Shop2.Data.Migrations
                         .HasMaxLength(1000);
 
                     b.Property<DateTime>("NgayThem")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(50);
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("NgonNgu")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("TacGia")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<string>("TacGia")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("TenSanPham")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
 
                     b.HasKey("SanPhamId");
 
@@ -463,19 +483,24 @@ namespace Shop2.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MatKhau")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NgayTao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("QuyenTaiKhoan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenTaiKhoan")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("TaiKhoanId");
 

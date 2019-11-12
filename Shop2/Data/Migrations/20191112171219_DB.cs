@@ -19,16 +19,16 @@ namespace Shop2.Data.Migrations
                     HoanTat = table.Column<bool>(nullable: false),
                     Huy = table.Column<bool>(nullable: false),
                     GhiChu = table.Column<bool>(nullable: false),
-                    TenKhachHang = table.Column<string>(nullable: true),
-                    EmailKhachHang = table.Column<string>(nullable: true),
+                    TenKhachHang = table.Column<string>(maxLength: 100, nullable: false),
+                    EmailKhachHang = table.Column<string>(nullable: false),
                     TenNguoiTT = table.Column<string>(nullable: true),
                     DiaChiTT1 = table.Column<string>(nullable: true),
                     DiaChiTT2 = table.Column<string>(nullable: true),
-                    DienThoaiTT = table.Column<string>(nullable: true),
-                    TenNguoiNH = table.Column<string>(nullable: true),
+                    DienThoaiTT = table.Column<string>(maxLength: 15, nullable: true),
+                    TenNguoiNH = table.Column<string>(nullable: false),
                     DiaChiNH1 = table.Column<string>(nullable: true),
-                    DiaChiNH = table.Column<string>(nullable: true),
-                    DienThoaiNH = table.Column<string>(nullable: true)
+                    DiaChiNH = table.Column<string>(nullable: false),
+                    DienThoaiNH = table.Column<string>(maxLength: 15, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,8 +41,8 @@ namespace Shop2.Data.Migrations
                 {
                     GianHangId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenGianHang = table.Column<string>(nullable: true),
-                    MoTaGH = table.Column<string>(maxLength: 100, nullable: true)
+                    TenGianHang = table.Column<string>(maxLength: 100, nullable: false),
+                    MoTaGH = table.Column<string>(maxLength: 1000, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,14 +55,14 @@ namespace Shop2.Data.Migrations
                 {
                     SanPhamId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenSanPham = table.Column<string>(nullable: true),
+                    TenSanPham = table.Column<string>(maxLength: 500, nullable: false),
                     MotaSP = table.Column<string>(maxLength: 1000, nullable: true),
-                    Gia = table.Column<int>(nullable: false),
+                    Gia = table.Column<decimal>(type: "money", nullable: false),
                     Image = table.Column<string>(nullable: true),
-                    TacGia = table.Column<string>(nullable: true),
+                    TacGia = table.Column<string>(maxLength: 1000, nullable: true),
                     NXB = table.Column<string>(maxLength: 1000, nullable: true),
-                    NgonNgu = table.Column<string>(maxLength: 1000, nullable: true),
-                    NgayThem = table.Column<DateTime>(maxLength: 50, nullable: false)
+                    NgonNgu = table.Column<string>(maxLength: 50, nullable: true),
+                    NgayThem = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,12 +75,12 @@ namespace Shop2.Data.Migrations
                 {
                     TaiKhoanId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenTaiKhoan = table.Column<string>(nullable: true),
-                    QuyenTaiKhoan = table.Column<string>(nullable: true),
-                    MatKhau = table.Column<string>(nullable: true),
+                    TenTaiKhoan = table.Column<string>(maxLength: 50, nullable: false),
+                    QuyenTaiKhoan = table.Column<string>(nullable: false),
+                    MatKhau = table.Column<string>(nullable: false),
                     CauHoiBaoMat = table.Column<string>(nullable: true),
                     CauTraLoi = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: false),
                     NgayTao = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -94,8 +94,8 @@ namespace Shop2.Data.Migrations
                 {
                     MatHangId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenMatHang = table.Column<string>(nullable: true),
-                    MoTaMatHang = table.Column<string>(maxLength: 100, nullable: true),
+                    TenMatHang = table.Column<string>(maxLength: 100, nullable: false),
+                    MoTaMatHang = table.Column<string>(maxLength: 1000, nullable: true),
                     GianHangId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -115,10 +115,10 @@ namespace Shop2.Data.Migrations
                 {
                     SanPhamId = table.Column<int>(nullable: false),
                     DonDatHangId = table.Column<int>(nullable: false),
-                    TenSanPham = table.Column<string>(nullable: true),
-                    SoLuong = table.Column<int>(maxLength: 1000, nullable: false),
+                    TenSanPham = table.Column<string>(maxLength: 500, nullable: false),
+                    SoLuong = table.Column<int>(nullable: false),
                     DonGia = table.Column<decimal>(type: "money", nullable: false),
-                    TongCong = table.Column<decimal>(type: "money", nullable: true)
+                    TongCong = table.Column<decimal>(type: "money", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -146,11 +146,11 @@ namespace Shop2.Data.Migrations
                     TenNguoiTT = table.Column<string>(nullable: true),
                     DiaChiTT1 = table.Column<string>(nullable: true),
                     DiaChiTT2 = table.Column<string>(nullable: true),
-                    DienThoaiTT = table.Column<string>(nullable: true),
+                    DienThoaiTT = table.Column<string>(maxLength: 15, nullable: true),
                     TenNguoiNH = table.Column<string>(nullable: true),
-                    DiaChiNH1 = table.Column<string>(nullable: true),
+                    DiaChiNH1 = table.Column<string>(nullable: false),
                     DiaChiNH2 = table.Column<string>(nullable: true),
-                    DienThoaiNH = table.Column<string>(nullable: true)
+                    DienThoaiNH = table.Column<string>(maxLength: 15, nullable: false)
                 },
                 constraints: table =>
                 {

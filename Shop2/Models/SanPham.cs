@@ -15,29 +15,33 @@ namespace Shop2.Models
         public int SanPhamId { get; set; }
 
         [DisplayName("Tên sản phẩm")]
+        [Required]
+        [MaxLength(500)]
         public string TenSanPham { get; set; }
-        [MaxLength(1000)]
 
+        [MaxLength(1000)]
         [DisplayName("Mô tả")]
         public string? MotaSP { get; set; }
 
         [DisplayName("Giá sản phẩm")]
+        [Column(TypeName = "money")]
+        [Required]
         public int Gia { get; set; }
 
         [DisplayName("Hình ảnh")]
         public string Image { get; set; }
 
         [DisplayName("Tác giả")]
-        public string TacGia { get; set; }
         [MaxLength(1000)]
+        public string TacGia { get; set; }
 
         [DisplayName("Nhà xuất bản")]
-        public string NXB { get; set; }
         [MaxLength(1000)]
+        public string NXB { get; set; }
 
         [DisplayName("Ngôn ngữ")]
-        public string NgonNgu { get; set; }
         [MaxLength(50)]
+        public string NgonNgu { get; set; }
 
         [DisplayName("Ngày thêm")]
         public DateTime NgayThem { get; set; }

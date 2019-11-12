@@ -15,12 +15,13 @@ namespace Shop2.Models
         public int MatHangId { get; set; }
 
         [DisplayName("Tên mặt hàng")]
-        public string TenMatHang { get; set; }
+        [Required]
         [MaxLength(100)]
+        public string TenMatHang { get; set; }
 
         [DisplayName("Mô tả")]
-        public string MoTaMatHang { get; set; }
         [MaxLength(1000)]
+        public string MoTaMatHang { get; set; }
         public virtual ICollection<SanPhamMatHang> SanPhamMatHangs { get; set; }
     }
 }

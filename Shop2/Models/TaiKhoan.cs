@@ -15,12 +15,17 @@ namespace Shop2.Models
         public int TaiKhoanId { get; set; }
 
         [DisplayName("Tên tài khoản")]
+        [Required]
+        [MaxLength(50)]
         public string TenTaiKhoan { get; set; }
 
         [DisplayName("Quyền tài khoản")]
+        [Required]
         public string QuyenTaiKhoan { get; set; }
 
         [DisplayName("Mật khẩu")]
+        [Required]
+        [MinLength(8)]
         public string MatKhau { get; set; }
 
         [DisplayName("Câu hỏi bảo mật")]
@@ -30,6 +35,7 @@ namespace Shop2.Models
         public string? CauTraLoi { get; set; }
 
         [DisplayName("Email")]
+        [Required]
         public string Email { get; set; }
 
         [DisplayName("Ngày tạo")]

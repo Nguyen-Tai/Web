@@ -40,10 +40,7 @@
             <th></th>
             <th></th>
         </tr>
-
-        @if (Model != null)
-        {
-            foreach (var item in Model)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -74,7 +71,6 @@
                         <partial name="_TableButtonPartial" model="item.SanPhamId" />
                     </td>
                 </tr>
-            }
         }
     </table>
 </div>

@@ -16,6 +16,8 @@
     <Compile Remove="Data\Migrations\20191111142108_DB.Designer.cs" />
     <Compile Remove="Data\Migrations\20191111143706_DB.cs" />
     <Compile Remove="Data\Migrations\20191111143706_DB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191112170954_DB.cs" />
+    <Compile Remove="Data\Migrations\20191112170954_DB.Designer.cs" />
   </ItemGroup>
 
 

@@ -27,18 +27,22 @@ namespace Shop2.Models
         public string? DiaChiTT2 { get; set; }
 
         [DisplayName("Điện thoại người thanh toán")]
+        [MaxLength(15)]
         public string DienThoaiTT { get; set; }
 
         [DisplayName("Tên người nhận hàng")]
         public string TenNguoiNH { get; set; }
 
         [DisplayName("Địa chỉ người nhận hàng 1")]
+        [Required]
         public string DiaChiNH1 { get; set; }
 
         [DisplayName("Địa chỉ người nhận hàng 2")]
         public string? DiaChiNH2 { get; set; }
 
         [DisplayName("Điện thoại người nhận hàng")]
+        [Required]
+        [MaxLength(15)]
         public string DienThoaiNH { get; set; }
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

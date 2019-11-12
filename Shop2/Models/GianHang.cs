@@ -15,12 +15,13 @@ namespace Shop2.Models
         public int GianHangId { get; set; }
 
         [DisplayName("Tên gian hàng")]
-        public string TenGianHang { get; set; }
+        [Required]
         [MaxLength(100)]
+        public string TenGianHang { get; set; }
 
         [DisplayName("Mô tả")]
-        public string MoTaGH { get; set; }
         [MaxLength(1000)]
+        public string MoTaGH { get; set; }
         public virtual ICollection<LoaiMatHang> LoaiMatHangs { get; set; }
     }
 }

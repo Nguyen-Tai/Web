@@ -16,18 +16,22 @@ namespace Shop2.Models
         public virtual DonDatHang DonDatHang { get; set; }
 
         [DisplayName("Tên sản phẩm")]
+        [Required]
+        [MaxLength(500)]
         public string TenSanPham { get; set; }
-        [MaxLength(1000)]
 
         [DisplayName("Số lượng")]
+        [Required]
         public int SoLuong { get; set; }
 
         [Column(TypeName = "money")]
         [DisplayName("Đơn giá")]
+        [Required]
         public decimal DonGia { get; set; }
 
         [DisplayName("Tổng cộng")]
         [Column(TypeName = "money")]
+        [Required]
         public decimal? TongCong { get; set; }       
     }
 }

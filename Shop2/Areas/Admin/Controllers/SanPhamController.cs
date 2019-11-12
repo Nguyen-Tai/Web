@@ -19,7 +19,7 @@ namespace Shop2.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_db.SanPhams.ToList());
         }
         public IActionResult Create()
         {
@@ -36,6 +36,7 @@ namespace Shop2.Areas.Admin.Controllers
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(sanPham);
         }
     }

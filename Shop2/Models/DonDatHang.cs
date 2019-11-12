@@ -33,9 +33,12 @@ namespace Shop2.Models
         public bool GhiChu { get; set; }
 
         [DisplayName("Tên khách hàng")]
+        [Required]
+        [MaxLength(100)]
         public string TenKhachHang { get; set; }
 
         [DisplayName("Email khách hàng")]
+        [Required]
         public string EmailKhachHang { get; set; }
 
         [DisplayName("Tên người thanh toán")]
@@ -48,18 +51,23 @@ namespace Shop2.Models
         public string? DiaChiTT2 { get; set; }
 
         [DisplayName("Điện thoại người thanh toán 1")]
+        [MaxLength(15)]
         public string DienThoaiTT { get; set; }
 
         [DisplayName("Tên người nhận hàng")]
+        [Required]
         public string TenNguoiNH { get; set; }
 
         [DisplayName("Địa chỉ người nhận hàng 2")]
         public string? DiaChiNH1 { get; set; }
 
         [DisplayName("Địa chỉ người nhận hàng 1")]
+        [Required]
         public string DiaChiNH { get; set; }
 
         [DisplayName("Điện thoại nhận hàng")]
+        [Required]
+        [MaxLength(15)]
         public string DienThoaiNH { get; set; }
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
 
