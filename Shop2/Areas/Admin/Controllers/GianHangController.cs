@@ -9,17 +9,17 @@ using Shop2.Models;
 namespace Shop2.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class SanPhamController : Controller
+    public class GianHangController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public SanPhamController(ApplicationDbContext db)
+        public GianHangController(ApplicationDbContext db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            return View(_db.SanPhams.ToList());
+            return View(_db.GianHangs.ToList());
         }
         public IActionResult Create()
         {
@@ -28,16 +28,16 @@ namespace Shop2.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(SanPham sanPham)
+        public async Task<IActionResult> Create(GianHang gianHang)
         {
             if (ModelState.IsValid)
             {
-                _db.Add(sanPham);
+                _db.Add(gianHang);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            
-            return View(sanPham);
+
+            return View(gianHang);
         }
         public async Task<IActionResult> Edit(int? id)
         {
@@ -45,29 +45,29 @@ namespace Shop2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var sanPham = await _db.SanPhams.FindAsync(id);
-            if (sanPham == null)
+            var gianHang = await _db.GianHangs.FindAsync(id);
+            if (gianHang == null)
             {
                 return NotFound();
             }
-            return View(sanPham);
+            return View(gianHang);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SanPham sanPham)
+        public async Task<IActionResult> Edit(int id, GianHang gianHang)
         {
-            if (id != sanPham.SanPhamId)
+            if (id != gianHang.GianHangId)
             {
                 return NotFound();
             }
             if (ModelState.IsValid)
             {
-                _db.Update(sanPham);
+                _db.Update(gianHang);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(sanPham);
+            return View(gianHang);
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -75,12 +75,12 @@ namespace Shop2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var sanPham = await _db.SanPhams.FindAsync(id);
-            if (sanPham == null)
+            var gianHang = await _db.GianHangs.FindAsync(id);
+            if (gianHang == null)
             {
                 return NotFound();
             }
-            return View(sanPham);
+            return View(gianHang);
         }
         public async Task<IActionResult> Delete(int? id)
         {
@@ -88,20 +88,20 @@ namespace Shop2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var sanPham = await _db.SanPhams.FindAsync(id);
-            if (sanPham == null)
+            var gianHang = await _db.GianHangs.FindAsync(id);
+            if (gianHang == null)
             {
                 return NotFound();
             }
-            return View(sanPham);
+            return View(gianHang);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var sanPham = await _db.SanPhams.FindAsync(id);
-            _db.SanPhams.Remove(sanPham);
+            var gianHang = await _db.GianHangs.FindAsync(id);
+            _db.GianHangs.Remove(gianHang);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -1,0 +1,39 @@
+﻿@model Shop2.Models.GianHang
+@{
+    ViewData["Title"] = "Delete";
+}
+<br />
+<br />
+<br />
+
+<h2 class="text-info">Delete gian hàng</h2>
+<br />
+<form method="post" asp-action="Delete">
+    <div class="p-4 border rounded">
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TenGianHang">Tên gian hàng</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="TenGianHang" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="MoTaGH">Mô tả gian hàng</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="MoTaGH" disabled class="form-control" />
+            </div>
+        </div>       
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" asp-route-id="@Model.GianHangId" value="Delete" />
+            <a asp-action="Index" class="btn btn-success">Back To List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

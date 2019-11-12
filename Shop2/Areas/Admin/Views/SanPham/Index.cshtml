@@ -19,24 +19,12 @@
                 @Html.DisplayNameFor(m => m.TenSanPham)
             </th>
             <th>
-                @Html.DisplayNameFor(m => m.MotaSP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => m.Gia)
-            <th>
                 @Html.DisplayNameFor(m => m.Image)
             </th>
             <th>
                 @Html.DisplayNameFor(m => m.TacGia)
             </th>
-            <th>
-                @Html.DisplayNameFor(m => m.NXB)
-            <th>
-                @Html.DisplayNameFor(m => m.NgonNgu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => m.NgayThem)
-            </th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -45,28 +33,13 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(m => item.TenSanPham)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.MotaSP)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Gia)
-                    </td>
+                    </td>                                  
                     <td>
                         @Html.DisplayFor(m => item.Image)
                     </td>
                     <td>
                         @Html.DisplayFor(m => item.TacGia)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.NXB)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.NgonNgu)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.NgayThem)
-                    </td>
+                    </td>                   
                     <td>
                         <partial name="_TableButtonPartial" model="item.SanPhamId" />
                     </td>

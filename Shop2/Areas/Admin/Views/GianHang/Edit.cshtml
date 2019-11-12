@@ -1,0 +1,44 @@
+﻿@model Shop2.Models.GianHang
+@{
+    ViewData["Title"] = "Edit";
+}
+<br />
+<br />
+<br />
+
+<h2 class="text-info">Edit Gian Hàng</h2>
+<br />
+<form method="post" asp-action="Edit">
+    <div class="p-4 border rounded">
+        <input type="hidden" asp-for="GianHangId" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TenGianHang">Tên gian hàng</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="TenGianHang" class="form-control" placeholder="Tên gian hàng..." />
+            </div>
+            <span asp-validation-for="TenGianHang" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="MoTaGH">Mô tả gian hàng</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="MoTaGH" class="form-control" />
+            </div>
+            <span asp-validation-for="MoTaGH" class="text-danger"></span>
+        </div>
+       
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" asp-route-id="@Model.GianHangId" value="Update" />
+            <a asp-action="Index" class="btn btn-success">Back To List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
