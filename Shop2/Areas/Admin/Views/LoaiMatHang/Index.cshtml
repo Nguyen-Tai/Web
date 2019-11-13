@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Shop2.Models.LoaiMatHang>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">List loại mặt hàng</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New loại mặt hàng </a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenMatHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.GianHang.TenGianHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.MoTaMatHang)
+            </th>          
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.TenMatHang)
+                </td>
+                @*<td>
+                    @String.Format("{0:c}", item.Price)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(m => item.GianHang.TenGianHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.MoTaMatHang)
+                </td>
+                @*<td>
+                    @if (!item.SpecialTags.Name.Equals("--None--"))
+                    {
+                        @Html.DisplayFor(m => item.SpecialTags.Name)
+                    }
+                </td>*@
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MatHangId" />
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
+

@@ -12,6 +12,7 @@ using Shop2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Shop2
 {
@@ -35,6 +36,8 @@ namespace Shop2
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,5 +23,11 @@ namespace Shop2.Models
         [MaxLength(1000)]
         public string MoTaMatHang { get; set; }
         public virtual ICollection<SanPhamMatHang> SanPhamMatHangs { get; set; }
+
+        [Display(Name ="GianhangId")]
+        public int GianHangId { get; set; }
+
+        [ForeignKey("GianHangId")]
+        public virtual GianHang GianHang { get; set; }
     }
 }
