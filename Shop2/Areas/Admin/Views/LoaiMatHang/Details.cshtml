@@ -1,0 +1,41 @@
+﻿@model Shop2.Models.ViewModel.LoaiMatHangViewModel
+@using Shop2.Extensions
+
+<br />
+<h2 class="text-info">Details Loại Mặt Hàng</h2>
+
+<div class="p-4 border rounded row">
+    <div class="col-8">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="LoaiMatHang.TenMatHang"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="LoaiMatHang.TenMatHang" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="LoaiMatHang.MoTaMatHang"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="LoaiMatHang.MoTaMatHang" readonly class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="GianHangs">Gian hàng</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="LoaiMatHang.GianHang.TenGianHang" readonly class="form-control" />
+            </div>
+        </div>
+       
+    </div>
+    <br />
+    <div class="form-group">
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.LoaiMatHang.MatHangId">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+</div>
