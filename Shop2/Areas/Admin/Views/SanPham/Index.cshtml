@@ -18,11 +18,15 @@
             <th>
                 @Html.DisplayNameFor(m => m.TenSanPham)
             </th>
-            <th>
-                @Html.DisplayNameFor(m => m.Image)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(m => m.TacGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Gia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.NgonNgu)
             </th>
             <th></th>
             <th></th>
@@ -30,20 +34,23 @@
         </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.TenSanPham)
-                    </td>                                  
-                    <td>
-                        @Html.DisplayFor(m => item.Image)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.TacGia)
-                    </td>                   
-                    <td>
-                        <partial name="_TableButtonPartial" model="item.SanPhamId" />
-                    </td>
-                </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.TenSanPham)
+        </td>      
+        <td>
+            @Html.DisplayFor(m => item.TacGia)
+        </td>
+        <td>
+            @String.Format("{0:C}",item.Gia)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.NgonNgu)
+        </td>
+        <td>
+            <partial name="_TableButtonPartial" model="item.SanPhamId" />
+        </td>
+    </tr>
         }
     </table>
 </div>

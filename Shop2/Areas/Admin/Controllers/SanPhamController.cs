@@ -34,21 +34,6 @@ namespace Shop2.Areas.Admin.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(SanPham sanPham)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _db.Add(sanPham);
-        //        await _db.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-
-        //    return View(sanPham);
-        //}
-
-        //Post : Products Create
         [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePOST(SanPham sanPham)
@@ -58,7 +43,7 @@ namespace Shop2.Areas.Admin.Controllers
                 return View(sanPham);
             }
 
-            _db.Add(sanPham);
+            _db.SanPhams.Add(sanPham);
             await _db.SaveChangesAsync();
 
             //Image being saved
@@ -108,15 +93,45 @@ namespace Shop2.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SanPham sanPham)
+        public async Task<IActionResult> Edit(int id,SanPham sanPham)
         {
-            if (id != sanPham.SanPhamId)
-            {
-                return NotFound();
-            }
             if (ModelState.IsValid)
             {
-                _db.Update(sanPham);
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+
+                var productFromDb = _db.SanPhams.Where(m => m.SanPhamId == sanPham.SanPhamId).FirstOrDefault();
+
+                if (files.Count > 0 && files[0] != null)
+                {
+                    //if user uploads a new image
+                    var uploads = Path.Combine(webRootPath, SD.ImageFolder);
+                    var extension_new = Path.GetExtension(files[0].FileName);
+                    var extension_old = Path.GetExtension(productFromDb.Image);
+
+                    if (System.IO.File.Exists(Path.Combine(uploads, sanPham.SanPhamId + extension_old)))
+                    {
+                        System.IO.File.Delete(Path.Combine(uploads, sanPham.SanPhamId + extension_old));
+                    }
+                    using (var filestream = new FileStream(Path.Combine(uploads, sanPham.SanPhamId + extension_new), FileMode.Create))
+                    {
+                        files[0].CopyTo(filestream);
+                    }
+                    sanPham.Image = @"\" + SD.ImageFolder + @"\" + sanPham.SanPhamId + extension_new;
+                }
+
+                if (sanPham.Image != null)
+                {
+                    productFromDb.Image = sanPham.Image;
+                }
+
+                productFromDb.TenSanPham = sanPham.TenSanPham;
+                productFromDb.MotaSP = sanPham.MotaSP;
+                productFromDb.Gia = sanPham.Gia;
+                productFromDb.TacGia = sanPham.TacGia;
+                productFromDb.NXB = sanPham.NXB;
+                productFromDb.NgonNgu = sanPham.NgonNgu;
+                productFromDb.NgayThem = sanPham.NgayThem;
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -153,7 +168,22 @@ namespace Shop2.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var sanPham = await _db.SanPhams.FindAsync(id);
+            string webRootPath = _hostingEnvironment.WebRootPath;
+
+            SanPham sanPham = await _db.SanPhams.FindAsync(id);
+            if(sanPham==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var uploads = Path.Combine(webRootPath, SD.ImageFolder);
+                var extension = Path.GetExtension(sanPham.Image);
+                if (System.IO.File.Exists(Path.Combine(uploads,sanPham.SanPhamId+extension)))
+                {
+                    System.IO.File.Delete(Path.Combine(uploads, sanPham.SanPhamId + extension)); 
+                }
+            }
             _db.SanPhams.Remove(sanPham);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

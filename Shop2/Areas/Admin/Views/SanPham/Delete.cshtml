@@ -1,82 +1,84 @@
 ﻿@model Shop2.Models.SanPham
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Edit";
 }
 <br />
 <br />
 <br />
 
-<h2 class="text-info">Delete User</h2>
+<h2 class="text-info">Delete sản phẩm</h2>
 <br />
-<form method="post" asp-action="Delete">
-    <div class="p-4 border rounded">
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TenSanPham">Tên sản phẩm</label>
+<form method="post">
+    <div class="p-4 border rounded row">
+        <input type="hidden" asp-for="SanPhamId" />
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="TenSanPham">Tên sản phẩm</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="TenSanPham" readonly class="form-control" />
+                </div>
             </div>
-            <div class="col-5">
-                <input asp-for="TenSanPham" disabled class="form-control" />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="MotaSP">Mô tả SP</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="MotaSP" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Gia">Giá SP</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Gia" readonly class="form-control" />
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="TacGia">Tác giả</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="TacGia" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="NXB">Nhà xuất bản</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="NXB" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="NgonNgu">Ngôn ngữ</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="NgonNgu" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="NgayThem">Ngày thêm</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="NgayThem"  readonly class="form-control" />
+                </div>
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="MotaSP">Mô tả SP</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="MotaSP" disabled class="form-control" />
-            </div>
+        <div class="col-1">
+
         </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Gia">Giá</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="Gia" disabled class="form-control" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Image">Hình ảnh</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="Image" disabled class="form-control" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TacGia">Tác giả</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="TacGia" disabled class="form-control" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="NXB">NXB</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="NXB" disabled class="form-control" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="NgonNgu">Ngôn ngữ</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="NgonNgu" disabled class="form-control" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="NgayThem">Ngày thêm</label>
-            </div>
-            <div class="col-5">
-                <input asp-for="NgayThem" disabled class="form-control" />
-            </div>
+        <div class="col-3">
+            <img src="@Model.Image" width="100%" style="boder-radius:5px;border:1px solid #bbb9b9;" />
         </div>
         <br />
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" asp-route-id="@Model.SanPhamId" value="Delete" />
+            <input type="submit" class="btn btn-danger" value="Delete" />
             <a asp-action="Index" class="btn btn-success">Back To List</a>
         </div>
     </div>
